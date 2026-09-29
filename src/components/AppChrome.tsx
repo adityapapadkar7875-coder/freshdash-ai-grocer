@@ -26,7 +26,7 @@ function Shell({ children }: { children: ReactNode }) {
         <form onSubmit={search} className="order-3 col-span-2 flex min-w-0 flex-1 items-center rounded-full bg-muted px-4 sm:order-none"><Search className="size-4 shrink-0 text-muted-foreground"/><input aria-label="Search groceries" className="h-11 min-w-0 flex-1 bg-transparent px-3 text-sm outline-none placeholder:text-muted-foreground" placeholder='Search "milk" or ask for a recipe' value={query} onChange={e=>setQuery(e.target.value)}/></form>
         <Button variant="ghost" className="hidden rounded-full lg:flex"><UserRound/>Login</Button>
         <Button className="rounded-full px-3 sm:px-5" onClick={()=>store.setCartOpen(true)} aria-label={`Open cart with ${store.count} items`}><ShoppingBag className={store.count ? "animate-bump" : ""}/><span className="hidden sm:inline">{store.count ? `${store.count} items · ₹${store.total}` : "My cart"}</span>{store.count>0&&<span className="sm:hidden">{store.count}</span>}</Button>
-        <Button size="icon" variant="ghost" className="sm:hidden" aria-label="Open menu" onClick={()=>setMenu(true)}><Menu/></Button>
+        <Button size="icon" variant="ghost" className="absolute right-16 top-3 sm:hidden" aria-label="Open menu" onClick={()=>setMenu(true)}><Menu/></Button>
       </div>
     </header>
     {children}

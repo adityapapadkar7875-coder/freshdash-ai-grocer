@@ -2,6 +2,7 @@ import { Clock3, Minus, Plus, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useFreshDash } from "@/components/FreshDashProvider";
 import type { Product } from "@/data/products";
+import { GroceryIcon } from "@/components/GroceryIcon";
 
 export function ProductCard({ product, compact = false }: { product: Product; compact?: boolean }) {
   const store = useFreshDash();
@@ -12,7 +13,7 @@ export function ProductCard({ product, compact = false }: { product: Product; co
       <button className="relative aspect-square w-full overflow-hidden rounded-xl bg-muted focus-visible:ring-2 focus-visible:ring-ring" onClick={() => store.setDetail(product)} aria-label={`View ${product.name}`}>
         <span className="absolute left-2 top-2 z-10 rounded-full bg-background/90 px-2 py-1 text-[10px] font-bold text-primary"><Clock3 className="mr-1 inline size-3"/>9 MIN</span>
         {discount > 5 && <span className="absolute right-2 top-0 z-10 rounded-b-lg bg-brand-yellow px-2 py-1 text-[10px] font-extrabold text-brand-yellow-foreground">{discount}% OFF</span>}
-        <span className="grid size-full place-items-center text-6xl transition duration-300 group-hover:scale-105" role="img" aria-label="">{product.emoji}</span>
+        <span className="grid size-full place-items-center text-primary transition duration-300 group-hover:scale-105"><GroceryIcon category={product.category} className="size-16"/></span>
       </button>
       <div className="flex min-h-[142px] flex-1 flex-col pt-3">
         <p className="line-clamp-2 min-h-10 text-sm font-bold leading-5">{product.name}</p>
